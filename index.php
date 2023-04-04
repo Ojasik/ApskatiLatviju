@@ -18,7 +18,16 @@
             <li><a href="jaunumi.html">Aktualitātes</a></li>
         </ul>
     </nav>
-    <div id="login" class="fas fa-arrow-right-to-bracket"></div>
+    <div onclick="openLoginForm()" id="login" class="fas fa-arrow-right-to-bracket"></div>
+    <div id="LoginForm">
+      <form action="">
+        <label for="username">Lietotājvards:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Parole:</label>
+        <input type="text" id="password" name="password">
+        <input class="btnlog" type="submit" value="Ielogoties">
+      </form>
+    </div>
   </div>
 </header>
 <div class="pictures">

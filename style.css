@@ -462,7 +462,49 @@ h1{
     border: 2px solid var(--maincolor);
     color: var(--maincolor);
     transform: scale(1.02);
+}
 
+#LoginForm{
+    display: none;
+    position: absolute;
+    top: 91px;
+    left: 79.5%;
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border: 4px solid var(--maincolor);
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.btnlog{
+    border: 2px solid rgb(190, 189, 189);
+    background-color: #f8f8f8;
+    width: 250px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 18px;
+    text-align: center;
+    transition: transform .2s;
+}
+
+.btnlog:hover{
+    cursor: pointer;
+    border: 2px solid var(--maincolor);
+    color: var(--maincolor);
+    transform: scale(1.02);
+}
+
+#LoginForm input[type=text]{
+    border: 1px solid var(--maincolor);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    width: 250px;
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 
