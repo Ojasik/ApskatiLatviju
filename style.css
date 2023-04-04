@@ -507,6 +507,16 @@ h1{
     margin-top: 5px;
 }
 
+#LoginForm input[type=password]{
+    border: 1px solid var(--maincolor);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    width: 250px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
 
 @media(max-width: 600px){
 

@@ -11,7 +11,7 @@
 <body>
     <header>
       <div class="header-cont">
-    <div class="logo"><a href="index.html"><img src="images/logo.png"></a>Apskati Latviju</div>
+    <div class="logo"><a href="index.php"><img src="images/logo.png"></a>Apskati Latviju</div>
     <nav class="nav">
         <ul>
             <li><a href="piedavajumi.html">Piedāvājumi</a></li>
@@ -20,14 +20,32 @@
     </nav>
     <div onclick="openLoginForm()" id="login" class="fas fa-arrow-right-to-bracket"></div>
     <div id="LoginForm">
-      <form action="">
+      <form method="post" action="">
         <label for="username">Lietotājvards:</label>
         <input type="text" id="username" name="username">
         <label for="password">Parole:</label>
-        <input type="text" id="password" name="password">
-        <input class="btnlog" type="submit" value="Ielogoties">
+        <input type="password" id="password" name="password">
+        <input class="btnlog" type="submit" name='ielogoties' value="Ielogoties">
       </form>
     </div>
+    <?php
+    require("connect_db.php");
+    if(isset($_POST['ielogoties'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $sql = "SELECT * FROM lietotaji WHERE Lietotajvards='$username' AND Parole='$password'";
+    $result = $savienojums->query($sql);
+    if($result->num_rows > 0){
+      session_start();
+      $_SESSION['username'] = $username;
+      header("Location: jaunumi.php");
+    }
+    else{
+      echo "Nepareiz lietotājvards vai parole!";
+    }
+  }
+    $savienojums->close();
+    ?>
   </div>
 </header>
 <div class="pictures">
