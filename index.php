@@ -14,8 +14,8 @@
     <div class="logo"><a href="index.php"><img src="images/logo.png"></a>Apskati Latviju</div>
     <nav class="nav">
         <ul>
-            <li><a href="piedavajumi.html">Piedāvājumi</a></li>
-            <li><a href="jaunumi.html">Aktualitātes</a></li>
+            <li><a href="piedavajumi.php">Piedāvājumi</a></li>
+            <li><a href="jaunumi.php">Aktualitātes</a></li>
         </ul>
     </nav>
     <div onclick="openLoginForm()" id="login" class="fas fa-arrow-right-to-bracket"></div>
