@@ -6,33 +6,45 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Pieteikties</title>
+    <title>Aktualitātes</title>
 </head>
 <body>
     <header>
         <div class="header-cont">
-        <div class="logo"><a href="index.html"><img src="images/logo.png"></a>Apskati Latviju</div>
+        <div class="logo"><a href="index.php"><img src="images/logo.png"></a>Apskati Latviju</div>
       <nav class="nav">
           <ul>
-              <li><a href="piedavajumi.html">Piedāvājumi</a></li>
-              <li><a href="jaunumi.html">Aktualitātes</a></li>
+              <li><a href="piedavajumi.php">Piedāvājumi</a></li>
+              <li><a href="jaunumi.php">Aktualitātes</a></li>
           </ul>
       </nav>
       <div id="login" class="fas fa-arrow-right-to-bracket"></div>
     </div>
   </header>
-  <h1>Pieteikties ceļojumam</h1>
-    <div class="pieteikties">
-    <form method="POST">
-        <input type="text" placeholder="Vārds *" name="vards"  title="Vārds" required>
-        <input type="text" placeholder="Uzvārds *" name="uzvards"  title="Uzvārds" required>
-        <input type="text" placeholder="Dzimšanas dati *" name="dzimDati"  title="Dzimšanas dati" required>
-        <input type="number" placeholder="Tālrunis *" name="talrunis"  title="Tālrunis" required>
-        <input type="email" placeholder="E-pasts *" name="epasts" title="E-pasts" required>
-        <input type="submit" value="Pieteikties!" name="gatavs" class="btn">
-    </form>
-</div>
-<footer>
+  <h1>Aktualitātes</h1>
+  <div class="jaunumi">
+  <?php
+            require("connect_db.php");
+
+            $jaunumuVaicajums = "SELECT * FROM aktualitates";
+            $atlasaJaunumus = mysqli_query($savienojums, $jaunumuVaicajums);
+   if(mysqli_num_rows($atlasaJaunumus) > 0 ){
+       while($ieraksts = mysqli_fetch_assoc($atlasaJaunumus)){
+        echo "
+    <div class='jaunums'>
+      <img src={$ieraksts['Attels_URL']}>
+    <div class='jaun-text'>
+      <h2>{$ieraksts['Virsraksts']}</h2>
+      <p>{$ieraksts['Aktualitate']}</p>
+      <p>{$ieraksts['Datums']}</p>
+    </div>
+   </div>
+   ";
+       }
+      }
+      ?>
+  </div>
+  <footer>
     <div class="foot">
       <div class="icons">
     <a href="#"><i class="fa-brands fa-youtube"></i></a>

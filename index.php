@@ -56,51 +56,32 @@
   <img src="images/Latvia.jpg" alt="">
 </div>
 <div id="popular">
-   <div class="co">
-    <div class="pri"><p>€1000.00</p></div>
-    <div class="zoom">
-      <a href="pieteikties.html"><img src="images/Ventspils.jpg" alt=""></a>
+<?php
+            require("connect_db.php");
+
+            $popularakieVaicajums = "SELECT * FROM popular";
+            $atlasaPopularakos = mysqli_query($savienojums, $popularakieVaicajums);
+   if(mysqli_num_rows($atlasaPopularakos) > 0 ){
+       while($ieraksts = mysqli_fetch_assoc($atlasaPopularakos)){
+        echo "
+   <div class='co'>
+    <div class='pri'><p>{$ieraksts['Cena']}</p></div>
+    <div class='zoom'>
+      <a href='pieteikties.html'><img src={$ieraksts['Attels']}></a>
     </div>
-      <h2>Ventspils</h2>
+      <h2>{$ieraksts['Nosaukums']}</h2>
       <p>Jūs apskatīsiet:</p>
-      <p class="places">1. Koncertzāle LATVIJA<br>2. Livonijas ordeņa pils</p>
-      <p>21.04.2023 - 25.04.2023</p>
-      <a href="pieteikties.html"><button>Pieteikties</button></a>
+      <p class='places'>{$ieraksts['Vieta1']}<br>{$ieraksts['Vieta2']}</p>
+      <p>{$ieraksts['Datums']}</p>
+      <form action='pieteikties.php' method='post'>
+          <button type=submit name='pieteikties' value={$ieraksts['Nosaukums']}>Pieteikties</button>
+      </form>
     </div>
-    <div class="co">
-      <div class="pri"><p>€1000.00</p></div>
-      <div class="zoom">
-      <a href="pieteikties.html"><img src="images/Rezekne.jpg" alt=""></a>
-    </div>
-      <h2>Rēzekne</h2>
-      <p>Jūs apskatīsiet:</p>
-      <p class="places">1. Sienu gleznojumi<br>2. Kultūras darbinieku parks</p>
-      <p>21.04.2023 - 25.04.2023</p>
-      <a href="pieteikties.html"><button>Pieteikties</button></a>
-    </div>
-    <div class="co">
-      <div class="pri"><p>€1000.00</p></div>
-      <div class="zoom">
-      <a href="pieteikties.html"><img src="images/Liepaja.jpg" alt=""></a>
-    </div>
-      <h2>Liepāja</h2>
-      <p>Jūs apskatīsiet:</p>
-      <p class="places">1. Romas dārzs<br>2. Pludmale</p>
-      <p>21.04.2023 - 25.04.2023</p>
-      <a href="pieteikties.html"><button>Pieteikties</button></a>
-    </div>
-    <div class="co">
-      <div class="pri"><p>€1000.00</p></div>
-      <div class="zoom">
-      <a href="pieteikties.html"><img src="images/Tervete.jpg" alt=""></a>
-    </div>
-      <h2>Tērvete</h2>
-      <p>Jūs apskatīsiet:</p>
-      <p class="places">1. Tērvetes koka pils<br>2. Annas Briegaderes muzejs</p>
-      <p>21.04.2023 - 25.04.2023</p>
-      <a href="pieteikties.html"><button>Pieteikties</button></a>
-    </div>
-    <a href="piedavajumi.html"><button class="visi">Visi piedāvājumi</button></a>
+    ";
+       }
+      }
+      ?>
+    <a href="piedavajumi.php"><button class="visi">Visi piedāvājumi</button></a>
 </div>
   </div>
   <div class="gray-cont">
