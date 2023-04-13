@@ -439,6 +439,14 @@ footer p{
     font-size: 18px;
 }
 
+.pievienotpiedav{
+    display: flex;
+
+}
+
+.input{
+    width: 100px;
+}
 h1{
     text-align: center;
     color: var(--maincolor);
@@ -464,7 +472,7 @@ h1{
     transform: scale(1.02);
 }
 
-.LoginForm{
+#LoginForm{
     display: none;
     position: absolute;
     top: 91px;
@@ -478,6 +486,21 @@ h1{
     justify-content: center;
     z-index: 99;
 }
+.pievienot{
+    border: 2px solid rgb(190, 189, 189);
+    background-color: #f8f8f8;
+    width: 1140px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 18px;
+    text-align: center;
+    transition: transform .2s;
+}
+
+.piev{
+    margin: 0 auto;
+}
+
 
 .btnlog{
     border: 2px solid rgb(190, 189, 189);
@@ -497,7 +520,7 @@ h1{
     transform: scale(1.02);
 }
 
-.LoginForm input[type=text]{
+#LoginForm input[type=text]{
     border: 1px solid var(--maincolor);
     border-radius: 20px;
     text-align: center;
@@ -507,7 +530,7 @@ h1{
     margin-top: 5px;
 }
 
-.LoginForm input[type=password]{
+#LoginForm input[type=password]{
     border: 1px solid var(--maincolor);
     border-radius: 20px;
     text-align: center;

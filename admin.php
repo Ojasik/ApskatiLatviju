@@ -48,66 +48,51 @@
     ?>
   </div>
 </header>
-<div class="pictures">
-  <div class="container">
-    <p>Dodies ceļojumā pa Latviju</p>
-  </div>
-  <div class="liela">
-  <img src="images/Latvia.jpg" alt="">
-</div>
-<div id="popular">
-<?php
+<h1>Piedāvājumi</h1>
+<div class="piev"><a href='pievienotpied.php'><button class="pievienot">Pievienot piedāvājumu</button></a></div>
+  <div id="popular2">
+  <?php
             require("connect_db.php");
 
-            $popularakieVaicajums = "SELECT * FROM popular";
-            $atlasaPopularakos = mysqli_query($savienojums, $popularakieVaicajums);
-   if(mysqli_num_rows($atlasaPopularakos) > 0 ){
-       while($ieraksts = mysqli_fetch_assoc($atlasaPopularakos)){
+            $piedavajumuVaicajums = "SELECT * FROM piedavajumi";
+            $atlasaPiedavajumus = mysqli_query($savienojums, $piedavajumuVaicajums);
+   if(mysqli_num_rows($atlasaPiedavajumus) > 0 ){
+       while($ieraksts = mysqli_fetch_assoc($atlasaPiedavajumus)){
         echo "
-   <div class='co'>
-    <div class='pri'><p>{$ieraksts['Cena']}</p></div>
-    <div class='zoom'>
-      <a href='pieteikties.html'><img src={$ieraksts['Attels']}></a>
-    </div>
-      <h2>{$ieraksts['Nosaukums']}</h2>
-      <p>Jūs apskatīsiet:</p>
+    <div class='co'>
+     <div class='pri'><p>{$ieraksts['Cena']}</p></div>
+     <div class='zoom'>
+       <a href='pieteikties.html'><img src='{$ieraksts['Attels']}'></a>
+     </div>
+       <h2>{$ieraksts['Nosaukums']}</h2>
+       <p>Jūs apskatīsiet:</p>
       <p class='places'>{$ieraksts['Vieta1']}<br>{$ieraksts['Vieta2']}</p>
       <p>{$ieraksts['Datums']}</p>
-      <form action='pieteikties.php' method='post'>
-          <button type=submit name='pieteikties' value={$ieraksts['Nosaukums']}>Pieteikties</button>
-      </form>
-    </div>
-    ";
+       <a href='pieteikties.html'><button>Pieteikties</button></a>
+     </div>
+     ";
        }
       }
-      ?>
-    <a href="piedavajumi.php"><button class="visi">Visi piedāvājumi</button></a>
-</div>
+  ?>
+ </div>
+ </body>
+ <footer>
+    <div class="foot">
+      <div class="icons">
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
   </div>
-  <div class="gray-cont">
+  <ul>
+      <li><i class="fa fa-phone-flip"></i>+371 22 345 678</li>
+      <li><i class="fa fa-envelope"></i>apskatilatviju@apskatilatviju.lv</li>
+      <li><i class="fa fa-location-dot"></i>Latvija</li>
+  </ul>
+  <ul>
+    <li><a href="piedavajumi.html">Piedāvājumi</a></li>
+    <li><a href="jaunumi.html">Aktualitātes</a></li>
+  </ul>
+  <p>Apskati Latviju &copy; 2023</p>
   </div>
-
-
-</body>
-<footer>
-  <div class="foot">
-    <div class="icons">
-  <a href="#"><i class="fa-brands fa-youtube"></i></a>
-  <a href="#"><i class="fa-brands fa-facebook"></i></a>
-  <a href="#"><i class="fa-brands fa-twitter"></i></a>
-  <a href="#"><i class="fa-brands fa-instagram"></i></a>
-</div>
-<ul>
-    <li><i class="fa fa-phone-flip"></i>+371 22 345 678</li>
-    <li><i class="fa fa-envelope"></i>apskatilatviju@apskatilatviju.lv</li>
-    <li><i class="fa fa-location-dot"></i>Latvija</li>
-</ul>
-<ul>
-  <li><a href="piedavajumi.php">Piedāvājumi</a></li>
-  <li><a href="jaunumi.php">Aktualitātes</a></li>
-</ul>
-<p>Apskati Latviju &copy; 2023</p>
-</div>
-</footer>
-<script src="script.js"></script>
-</html>
+  </footer>
